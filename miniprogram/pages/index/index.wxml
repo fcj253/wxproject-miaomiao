@@ -1,0 +1,58 @@
+<view class="index">
+  <swiper class="index-swiper" indicator-dots="{{true}}"
+        autoplay="{{false}}" circular="{{true}}">
+        <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+          <swiper-item>
+            <image src="{{item}}" class="slide-image"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+
+      <view class="index-tab">
+        <view class="active">推荐</view>
+        <view>最新</view>
+      </view>
+
+      <view class="index-list">
+        <view class="index-list-item">
+          <image mode="aspectFill" src="http://www.longhushan.com.cn/upload/portal/20181024/ddb137abee9693d6bb0eca0bc90813c6.jpg"></image>
+          <view class="index-list-text">
+            <text>小喵喵</text>
+            <text>
+              <text class="iconfont icon-dianzan"></text>
+              <text>100</text>
+            </text>
+          </view>
+        </view>
+        <view class="index-list-item">
+          <image mode="aspectFill" src="http://www.longhushan.com.cn/upload/portal/20181024/ddb137abee9693d6bb0eca0bc90813c6.jpg"></image>
+          <view class="index-list-text">
+            <text>小喵喵</text>
+            <text>
+              <text class="iconfont icon-dianzan"></text>
+              <text>100</text>
+            </text>
+          </view>
+        </view>
+        <view class="index-list-item">
+          <image mode="aspectFill" src="http://www.longhushan.com.cn/upload/portal/20181024/ddb137abee9693d6bb0eca0bc90813c6.jpg"></image>
+          <view class="index-list-text">
+            <text>小喵喵</text>
+            <text>
+              <text class="iconfont icon-dianzan"></text>
+              <text>100</text>
+            </text>
+          </view>
+        </view>
+        <view class="index-list-item">
+          <image mode="aspectFill" src="http://www.longhushan.com.cn/upload/portal/20181024/ddb137abee9693d6bb0eca0bc90813c6.jpg"></image>
+          <view class="index-list-text">
+            <text>小喵喵</text>
+            <text>
+              <text class="iconfont icon-dianzan"></text>
+              <text>100</text>
+            </text>
+          </view>
+        </view>
+      </view>
+</view>
