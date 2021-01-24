@@ -3,7 +3,16 @@
     "pages/user/user",
     "pages/index/index",
     "pages/near/near",
-    "pages/message/message"
+    "pages/message/message",
+    "pages/editUserInfo/editUserInfo",
+    "pages/friendList/friendList",
+    "pages/detail/detail",
+    "pages/editUserInfo/head/head",
+    "pages/editUserInfo/name/name",
+    "pages/editUserInfo/signature/signature",
+    "pages/editUserInfo/location/location",
+    "pages/editUserInfo/phone/phone",
+    "pages/editUserInfo/weixin/weixin"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -13,7 +22,7 @@
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
-    "color":"#bfbfbf",
+    "color": "#bfbfbf",
     "selectedColor": "#88aacc",
     "list": [
       {
@@ -42,6 +51,10 @@
       }
     ]
   },
-  "sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
 }

@@ -1,15 +1,13 @@
 // miniprogram/pages/index/index.js
+const db = wx.cloud.database()
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    imgUrls: [
-      'http://www.longhushan.com.cn/upload/portal/20181024/ddb137abee9693d6bb0eca0bc90813c6.jpg',
-      'http://www.longhushan.com.cn/upload/portal/20181116/be6500e56f4557376bac126a0acb00f3.jpg',
-      'http://www.longhushan.com.cn/upload/portal/20201004/8c0d53160385c8dfac384d84cb349f70.png'
-    ]
+    imgUrls: [],
+    listData : [],
+    current : 'time'
   },
 
   /**
@@ -23,7 +21,8 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.getListData();
+    this.getBannerList();
   },
 
   /**
@@ -66,5 +65,75 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  handleLinks(ev){
+    let id = ev.target.dataset.id;
+    wx.cloud.callFunction({
+      name : 'update',
+      data : {
+        collection : 'users',
+        doc : id,
+        data : "{links : _.inc(1)}"
+      }
+    }).then((res)=>{
+      let updated = res.result.stats.updated;
+      if(updated){
+        let cloneListData = [...this.data.listData];
+        for(let i = 0; i < cloneListData.length; i++){
+          if(cloneListData[i]._id == id){
+            cloneListData[i].links++;
+          }
+        }
+        this.setData({
+          listData : cloneListData
+        })
+      }
+    })
+    // db.collection('users').doc(id).update({
+    //   data : {
+    //     links : 5
+    //   }
+    // }).then((res)=>{
+      
+    // })
+  },
+  handleCurrent(ev){
+    let current = ev.target.dataset.current;
+    if(current == this.data.current){
+      return false;
+    }
+    this.setData({
+      current
+    },()=>{
+      this.getListData();
+    })
+  },
+  getListData(){
+    db.collection('users')
+    .field({
+      userPhoto : true,
+      nickName : true,
+      links : true
+    })
+    .orderBy(this.data.current, 'desc')
+    .get()
+    .then((res)=>{
+      this.setData({
+        listData : res.data
+      })
+    })
+  },
+  handleDetail(ev){
+    let id = ev.target.dataset.id;
+    wx.navigateTo({
+      url: '/pages/detail/detail?userId=' + id,
+    })
+  },
+  getBannerList(){
+    db.collection('banner').get().then((res)=>{
+      this.setData({
+        imgUrls : res.data
+      })
+    });
   }
 })

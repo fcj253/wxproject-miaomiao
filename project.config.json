@@ -39,7 +39,8 @@
   },
   "appid": "wx26486daa4d91db8b",
   "projectname": "miaomiao",
-  "libVersion": "2.14.3",
+  "libVersion": "2.14.1",
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
     "plugin": {
       "list": []
@@ -61,6 +62,42 @@
         {
           "name": "pages/user/user",
           "pathName": "pages/user/user",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/editUserInfo/editUserInfo",
+          "pathName": "pages/editUserInfo/editUserInfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/detail/detail",
+          "pathName": "pages/detail/detail",
+          "query": "userId=79550af26007ae68002d8fba1a5c9d43",
+          "scene": null
+        },
+        {
+          "name": "pages/message/message",
+          "pathName": "pages/message/message",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/friendList/friendList",
+          "pathName": "pages/friendList/friendList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/near/near",
+          "pathName": "pages/near/near",
           "scene": null
         }
       ]

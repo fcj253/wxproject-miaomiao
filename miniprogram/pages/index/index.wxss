@@ -1,5 +1,5 @@
 /* miniprogram/pages/index/index.wxss */
-.index-swiper{margin: 20rpx; border-radius: 10rpx; overflow: hidden;}
+.index-swiper{margin: 20rpx; border-radius: 10rpx; overflow: hidden; margin-top: 100rpx;}
 .index-swiper image{width: 100%; border-radius: 10rpx; overflow: hidden;}
 
 .index-tab{display: flex;}

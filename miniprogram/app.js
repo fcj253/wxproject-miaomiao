@@ -15,5 +15,9 @@ App({
     }
 
     this.globalData = {}
+
+    this.userInfo = {}
+
+    this.userMessage = []
   }
 })
